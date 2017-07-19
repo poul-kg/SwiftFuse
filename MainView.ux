@@ -24,7 +24,7 @@
         <Button Text="Hi Swift" Clicked="{callSwift}" />
         <Button Text="Another button" Clicked="{getInt}" />
         <NativeViewHost>
-            <!-- <MapBox /> -->
+            <MapBox />
         </NativeViewHost>
     </StackPanel>
 

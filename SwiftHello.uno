@@ -25,7 +25,7 @@ public class SwiftHello : NativeModule
         Resource.SetGlobalKey(_instance, "SwiftHello");
 
         AddMember(new NativeFunction("sayHello",(NativeCallback)SayHello));
-        AddMember(new NativeFunction("getInt", (NativeCallback)GetInt));
+        AddMember(new NativeFunction("getInt", GetInt));
     }
 
     //
@@ -38,6 +38,8 @@ public class SwiftHello : NativeModule
         return null;
     }
 
+    // This code works fine and prints log message:
+    // hello from swift
     [Foreign(Language.ObjC)]
     static extern(iOS) void SayHello(){
         @{
@@ -47,6 +49,7 @@ public class SwiftHello : NativeModule
 
     }
 
+    // To be able to run local preview
     static extern(!iOS) void SayHello(){
         debug_log("Not supported on this platform.");
     }
@@ -55,10 +58,11 @@ public class SwiftHello : NativeModule
     // GetInt
     //
 
-    int GetInt(Context c, object[] args) {
+    object GetInt(Context c, object[] args) {
         return GetInt();
     }
 
+    // This code works fine and returns proper int value: 25
     [Foreign(Language.ObjC)]
     static extern(iOS) int GetInt() {
         @{
@@ -67,10 +71,16 @@ public class SwiftHello : NativeModule
         @}
     }
 
+    // to be able to run local preview
+    static extern(!iOS) int GetInt() {
+        debug_log("Not supported on this platform.");
+        return 100;
+    }
+
 
 }
 
-/*namespace Test {
+//namespace Test {
     extern(iOS) class iOSMapBox : Fuse.Controls.Native.iOS.View
     {
         public iOSMapBox() : base(Create()) { }
@@ -91,4 +101,4 @@ public class SwiftHello : NativeModule
             else return base.CreateNativeView();
         }
     }
-}*/
+//}
