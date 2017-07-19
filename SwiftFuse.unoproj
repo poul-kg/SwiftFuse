@@ -1,0 +1,19 @@
+{
+  "RootNamespace":"",
+  "Packages": [
+    "Fuse",
+    "FuseJS"
+  ],
+  "Includes": [
+    "*",
+    "SwiftHello.uno:SourceFile",
+    "Test.swift:Bundle"
+  ],
+  "iOS": {
+    "SwiftVersion": 3.0,
+    "PList": {
+        "MGLMapboxAccessToken": "pk.eyJ1IjoicGF2ZWxrb3N0ZW5rbyIsImEiOiJjajU5OWR3ejQyODU0MzNvOThtMTIyYmZsIn0.IZnAQp1fgiIYgEgwW0qyJA",
+        "NSLocationAlwaysUsageDescription": "Shows your location on the map and helps improve OpenStreetMap."
+    }
+  }
+}

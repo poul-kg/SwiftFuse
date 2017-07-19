@@ -1,0 +1,31 @@
+<App>
+    
+    <JavaScript>
+
+    var SwiftHello = require("SwiftHello");
+
+    function callSwift(){
+        SwiftHello.sayHello();
+    }
+
+    function getInt() {
+        var int = SwiftHello.getInt();
+        console.log('Got Int: ' + int);
+    }
+
+    module.exports = {
+        callSwift: callSwift,
+        getInt: getInt
+    };
+
+    </JavaScript>
+
+    <StackPanel Height="500">
+        <Button Text="Hi Swift" Clicked="{callSwift}" />
+        <Button Text="Another button" Clicked="{getInt}" />
+        <NativeViewHost>
+            <!-- <MapBox /> -->
+        </NativeViewHost>
+    </StackPanel>
+
+</App>
